@@ -46,7 +46,9 @@ a {
      background-color: hsl(0, 0%, 100%);
      margin-bottom: 80px;
      /*border-style: solid;*/
-     position: relative;
+     position: absolute;
+     padding: 5px 50px;
+     z-index: 2;
 
 }
 
@@ -107,6 +109,37 @@ a {
     font-weight: bold;
     transition: 0.4s;
     background-color: transparent;
+    position: relative;
+    margin-left: 20px;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom:-35px;
+    width: 0;
+    height: 4px;
+    background:hsl(233, 8%, 62%);
+    transition: all .5s;
+}
+
+.menu ul li a:hover{
+    color: hsl(136, 65%, 51%);
+    text-decoration: underline;
+}
+
+.menu ul li a:hover::after{
+    width: 100%;
+}
+
+.dropdown-toggle {
+    display: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 
 .search{
@@ -116,7 +149,7 @@ a {
 .btn{
     width: 200px;
     height: 30px;
-    background: hsl(136, 65%, 51%);
+    background: linear-gradient(to right, hsl(136, 65%, 31%), hsl(192, 70%, 51%));
     border: 2px solid hsl(136, 65%, 51%);
     border-bottom-right-radius: 12px;
     border-top-right-radius: 12px;
@@ -137,6 +170,7 @@ a {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    padding-top: 50px;
     
 }
 
@@ -147,7 +181,7 @@ a {
     padding-left: 20px;
     padding-bottom: 20px;
     margin-left: 40px;
-    margin-top: 9%;
+    margin-top: 30%;
     letter-spacing: 2px;
 }
 
@@ -163,7 +197,7 @@ a {
 .seconDiv .cn{
     width: 160px;
     height: 40px;
-    background: hsl(136, 65%, 51%);
+    background: linear-gradient(to right, hsl(136, 65%, 31%), hsl(192, 70%, 51%));
     border: none;
     margin-bottom: 10px;
     margin-left: 55px;
@@ -200,6 +234,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 
 }
 
@@ -211,7 +246,7 @@ a {
 }
 
 .thirDiv {
-    margin-top: -200px;
+    margin-top: -150px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -334,13 +369,13 @@ a {
 .base .icon img{
     background-color: transparent;
     color: #fff;
+    padding-bottom: 20px;
 }
 
 .icons li {
    
-    font-size: 30px;
-    padding-left: 14px;
-    padding-top: 5px;
+    display: inline-block;
+    margin-right: 10px;
     background-color: transparent;
    
 }
@@ -352,6 +387,7 @@ a {
 
 .acb ul li {
     background-color: transparent;
+    margin: 10px 0;
 }
 
 .acb ul li a{
@@ -373,6 +409,7 @@ a {
 
 .cspp ul li {
     background-color: transparent;
+    margin: 10px 0;
 }
 
 .cspp ul li a{
@@ -387,6 +424,7 @@ a {
     background-color: transparent;
     line-height: 40px;
     margin-top: 40px;
+
 }
 
 .RqB p {
@@ -399,15 +437,21 @@ a {
     border-radius: 5px;
 }
 
+.attribution {
+    font-size: 14px;
+    text-align: center;
+    padding-top: 5px;
 }
 
-@media (max-width: 800px) {
-    .Flex-header {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        line-height: 60px;
+.attribution a {
+    font-size: 14px;
+}
 
+}
+
+@media screen and (max-width: 800px) {
+    .Flex-header {
+        padding: 30px 40px;
     }
 
     .menu{ 
@@ -415,12 +459,62 @@ a {
         line-height: 40px;
         display: flex;
         flex-direction: column;
+        position: absolute;
+        top: 100px;
+        margin-top: 100px;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        padding: 40px;
+        border-radius: 10px;
+        text-align: center;
+        /*opacity: 0;
+        transition: all .5s ease-in-out;*/
+    }
+
+    .menu ul li{
+        margin: 18px 0;
+
+    }
+
+    .menu ul li a {
+        color: hsl(233, 26%, 24%);
+        font-weight: 900;
+        font-size: 17px;
+        margin: 0;
+
+    }
+
+    .menu li a::after {
+        bottom: -20px;
+    }
+
+    .search .btn{
+        display: none;
+    }
+
+    .dropdown-toggle {
+        display: block;
+
     }
 
     .seconDiv {
         position: relative; 
     }
     
+    .imageDiv {
+    background: url(images/bg-intro-desktop.svg);
+    /*margin-top: -80px;*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+
+    }
+
+
     .marketing {
         flex-direction: column;
     }
